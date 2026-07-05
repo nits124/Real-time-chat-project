@@ -5,6 +5,7 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import {Provider} from "react-redux"
 import { store } from './redux/store.js'
+{/* <link rel="icon" type="image/png" href="/logo.png" /> */}
 
 export const serverUrl="http://localhost:8000"
 createRoot(document.getElementById('root')).render(
