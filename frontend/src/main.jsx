@@ -7,7 +7,9 @@ import {Provider} from "react-redux"
 import { store } from './redux/store.js'
 {/* <link rel="icon" type="image/png" href="/logo.png" /> */}
 
-export const serverUrl="http://localhost:8000"
+// export const serverUrl="http://localhost:8000"
+export const serverUrl = import.meta.env.VITE_SERVER_URL;
+
 createRoot(document.getElementById('root')).render(
 <BrowserRouter>
 <Provider store={store}>

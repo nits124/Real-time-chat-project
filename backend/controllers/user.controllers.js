@@ -16,11 +16,18 @@ try {
 
 export const editProfile=async (req,res)=>{
     try {
-        let {name}=req.body
+        // console.log("req.file =", req.file);
+        // console.log("req.body =", req.body);
+
+        let { name } = req.body;
         let image;
-        if(req.file){
-            image=await uploadOnCloudinary(req.file.path)
+
+        if (req.file) {
+            // console.log("Uploading:", req.file.path);
+            image = await uploadOnCloudinary(req.file.path);
+            // console.log("Cloudinary URL:", image);
         }
+
         let user=await User.findByIdAndUpdate(req.userId,{
            name,
            image 
@@ -32,6 +39,7 @@ export const editProfile=async (req,res)=>{
 
         return res.status(200).json(user)
     } catch (error) {
+        console.log(error);
         return res.status(500).json({message:`profile error ${error}`})
     }
 }
@@ -64,3 +72,4 @@ export const search =async (req,res)=>{
         return res.status(500).json({message:`search users error ${error}`})
     }
 }
+
